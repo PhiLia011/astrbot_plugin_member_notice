@@ -1,0 +1,46 @@
+{
+  "enable": {
+    "description": "插件总开关",
+    "type": "bool",
+    "default": true
+  },
+  "welcome_enable": {
+    "description": "启用入群欢迎",
+    "type": "bool",
+    "default": true
+  },
+  "leave_enable": {
+    "description": "启用退群提示",
+    "type": "bool",
+    "default": true
+  },
+  "welcome_msg": {
+    "description": "入群欢迎语（支持 {nickname} {user_id} {group_id}）",
+    "type": "text",
+    "default": "欢迎 {nickname} 加入本群！",
+    "hint": "{nickname}=昵称, {user_id}=QQ号, {group_id}=群号"
+  },
+  "leave_msg": {
+    "description": "退群提示语（支持 {nickname} {user_id} {group_id}）",
+    "type": "text",
+    "default": "{nickname} 离开了本群。",
+    "hint": "{nickname}=昵称, {user_id}=QQ号, {group_id}=群号"
+  },
+  "at_new_member": {
+    "description": "欢迎时是否 @ 新成员",
+    "type": "bool",
+    "default": true
+  },
+  "blacklist_groups": {
+    "description": "黑名单群号列表（黑名单内的群不生效，优先于白名单）",
+    "type": "list",
+    "items": { "type": "string" },
+    "default": []
+  },
+  "whitelist_groups": {
+    "description": "白名单群号列表（仅白名单内的群生效；留空则全部生效）",
+    "type": "list",
+    "items": { "type": "string" },
+    "default": []
+  }
+}

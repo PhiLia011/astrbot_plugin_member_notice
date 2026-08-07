@@ -1,0 +1,5 @@
+name: astrbot_plugin_member_notice
+desc: 群成员入群/退群时发送自定义欢迎/退群语，支持黑白名单，不会被其他欢迎插件屏蔽
+author: Firefly
+version: 1.0.0
+repo: https://github.com/AetherLumine/astrbot_plugin_member_notice

@@ -31,6 +31,60 @@
     "type": "bool",
     "default": true
   },
+  "mute_enable": {
+    "description": "新成员入群自动禁言",
+    "type": "bool",
+    "hint": "开启后新成员入群会被自动禁言一段时间，到点由协议端自动解禁。需要机器人在该群是管理员或群主，否则会失败（只写日志，群里不发提示）。",
+    "default": false
+  },
+  "mute_duration": {
+    "description": "默认禁言时长（秒）",
+    "type": "int",
+    "hint": "没有在「分群禁言时长」里单独设置的群都用这个值。有效范围 1 ~ 2592000 秒（30 天），超出按 30 天算。",
+    "default": 600
+  },
+  "mute_per_group": {
+    "description": "分群禁言时长",
+    "type": "template_list",
+    "hint": "给指定群单独设置禁言时长；这里没写的群用「默认禁言时长」。",
+    "templates": {
+      "mute": {
+        "name": "分群禁言时长",
+        "hint": "群号填纯数字，秒数填 1 ~ 2592000",
+        "items": {
+          "group_id": {
+            "type": "string",
+            "description": "群号",
+            "default": ""
+          },
+          "duration": {
+            "type": "int",
+            "description": "禁言时长（秒）",
+            "default": 600
+          }
+        }
+      }
+    },
+    "default": []
+  },
+  "mute_notice_msg": {
+    "description": "禁言提示语（留空则不发提示）",
+    "type": "text",
+    "hint": "禁言成功后单独发一条。可用 {nickname} {user_id} {group_id} {duration}；{duration} 会自动变成「10 分钟」这种可读文本。",
+    "default": "{nickname} 已加入本群，新人保护期已开启：禁言 {duration}，请先阅读群规～"
+  },
+  "mute_skip_users": {
+    "description": "免禁言 QQ 名单",
+    "type": "list",
+    "hint": "名单内的 QQ 入群时不会被自动禁言。",
+    "default": []
+  },
+  "mute_skip_invite": {
+    "description": "管理员邀请入群时不禁言",
+    "type": "bool",
+    "hint": "开启后，由群主/管理员邀请进群的成员不会被自动禁言，只有自己申请入群的才会。",
+    "default": true
+  },
   "blacklist_groups": {
     "description": "黑名单群号列表（黑名单内的群不生效，优先于白名单）",
     "type": "list",
